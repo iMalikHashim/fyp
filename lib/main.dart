@@ -22,64 +22,55 @@ class CKDGraphsPage extends StatelessWidget {
           children: [
             _buildGraphCard(
               title: 'Blood Pressure',
-              child: LineChart(
-                LineChartData(
-                  gridData: FlGridData(show: false),
-                  titlesData: FlTitlesData(show: false),
-                  borderData: FlBorderData(
+              child: SizedBox(
+                height: 200, // Constrained height
+                child: LineChart(LineChartData(
+                  gridData: FlGridData(
                     show: true,
-                    border: Border.all(
-                      color: const Color(0xff37434d),
-                      width: 1,
-                    ),
+                    drawVerticalLine: true,
+                    drawHorizontalLine: true,
                   ),
-                  minX: 0,
-                  maxX: 80,
-                  minY: 0,
-                  maxY: 80,
+                  // Correct titlesData configuration here
+                  borderData: FlBorderData(show: true),
                   lineBarsData: [
                     LineChartBarData(
                       spots: [
-                        FlSpot(10, 20),
-                        FlSpot(20, 30),
-                        // Add more spots for data points
+                        FlSpot(0, 120), // Day 1
+                        FlSpot(1, 110), // Day 2
+                        FlSpot(2, 130), // Day 3
                       ],
                       isCurved: true,
                       color: Colors.blue,
-                      barWidth: 4,
+                      barWidth: 5,
                       isStrokeCapRound: true,
+                      dotData: FlDotData(show: true),
                       belowBarData: BarAreaData(show: false),
                     ),
                   ],
-                ),
+                )),
               ),
             ),
             _buildGraphCard(
               title: 'Sugar Level',
-              child: BarChart(
-                BarChartData(
-                  titlesData: FlTitlesData(show: false),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: Border.all(
-                      color: const Color(0xff37434d),
-                      width: 1,
-                    ),
-                  ),
+              child: SizedBox(
+                height: 200, // Constrained height
+                child: BarChart(BarChartData(
+                  alignment: BarChartAlignment.spaceAround,
+                  maxY: 10,
                   barGroups: [
                     BarChartGroupData(
-                      x: 10,
-                      barRods: [
-                        BarChartRodData(
-                            fromY: 20, toY: 30, color: Colors.green),
-                      ],
-                    ),
-                    // Add more bar groups for data points
+                        x: 0,
+                        barRods: [BarChartRodData(toY: 8, color: Colors.red)]),
+                    BarChartGroupData(
+                        x: 1,
+                        barRods: [BarChartRodData(toY: 6, color: Colors.red)]),
+                    BarChartGroupData(
+                        x: 2,
+                        barRods: [BarChartRodData(toY: 7, color: Colors.red)]),
                   ],
-                ),
+                )),
               ),
             ),
-            // Add more graph cards for other attributes
           ],
         ),
       ),
@@ -88,17 +79,19 @@ class CKDGraphsPage extends StatelessWidget {
 
   Widget _buildGraphCard({required String title, required Widget child}) {
     return Card(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       elevation: 4.0,
       child: Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
             SizedBox(height: 10),
-            child,
+            child, // The chart widget is now constrained
           ],
         ),
       ),
