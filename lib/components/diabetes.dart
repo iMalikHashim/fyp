@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
 
 class DiabetesScreen extends StatefulWidget {
   @override
@@ -22,10 +21,35 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
     });
   }
 
+  AppBar topBar() {
+    return AppBar(
+      title: const Text(
+        'Diabetes and Kidney Monitoring',
+        style: TextStyle(color: Colors.black),
+      ),
+      backgroundColor: Colors.white,
+      leading: const Icon(
+        Icons.menu,
+        color: Colors.black,
+        size: 30.0,
+      ),
+      actions: [
+        IconButton(
+          onPressed: () => {},
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.black,
+            size: 30.0,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topbar(),
+      appBar: topBar(),
       body: Column(
         children: [
           Card(
