@@ -27,6 +27,22 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
       appBar: AppBar(
         title: Text('Diabetes and Kidney Monitoring'),
       ),
+      body: Column(
+        children: [
+          Card(
+            child: ListTile(
+              title: Text('Blood Sugar Level'),
+              subtitle: Text('$bloodSugarLevel mg/dL'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('GFR Rate'),
+              subtitle: Text('$gfrRate mL/min/1.73 m²'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
