@@ -6,28 +6,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'CKD',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.black,
-          size: 30.0,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () => {},
-            icon: const Icon(
-              Icons.notifications,
-              color: Colors.black,
-              size: 30.0,
-            ),
-          ),
-        ],
-      ),
+      appBar: topBar(),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
         child: Column(
@@ -258,6 +237,31 @@ class Dashboard extends StatelessWidget {
         ],
         selectedItemColor: Colors.cyan[800],
       ),
+    );
+  }
+
+  AppBar topBar() {
+    return AppBar(
+      title: const Text(
+        'CKD',
+        style: TextStyle(color: Colors.black),
+      ),
+      backgroundColor: Colors.white,
+      leading: const Icon(
+        Icons.menu,
+        color: Colors.black,
+        size: 30.0,
+      ),
+      actions: [
+        IconButton(
+          onPressed: () => {},
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.black,
+            size: 30.0,
+          ),
+        ),
+      ],
     );
   }
 }

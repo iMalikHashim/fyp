@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
 
 class DiabetesScreen extends StatefulWidget {
   @override
@@ -24,9 +25,7 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Diabetes and Kidney Monitoring'),
-      ),
+      appBar: topbar(),
       body: Column(
         children: [
           Card(
