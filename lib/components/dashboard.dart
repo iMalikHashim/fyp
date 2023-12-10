@@ -56,7 +56,10 @@ class Dashboard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigate to the ViewReports screen using the named route
+                        Navigator.pushNamed(context, '/viewReports');
+                      },
                       icon: const Icon(
                         Icons.add_circle_outline_rounded,
                         color: Color.fromARGB(255, 14, 7, 7),
