@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {
                         // Navigate to the ViewReports screen using the named route
-                        Navigator.pushNamed(context, '/viewReports');
+                        Navigator.pushNamed(context, '/addReports');
                       },
                       icon: const Icon(
                         Icons.add_circle_outline_rounded,

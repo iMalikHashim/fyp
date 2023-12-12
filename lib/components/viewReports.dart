@@ -186,7 +186,13 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Icon(Icons.arrow_right, size: 18.0),
+                        IconButton(
+                          icon: Icon(Icons.arrow_right, size: 18.0),
+                          onPressed: () {
+                            // Add your onPressed logic here
+                            Navigator.pushNamed(context, '/reportsDetails');
+                          },
+                        ),
                       ],
                     ),
                     // Add text under "Report 4" here
@@ -228,7 +234,13 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Icon(Icons.arrow_right, size: 18.0),
+                        IconButton(
+                          icon: Icon(Icons.arrow_right, size: 18.0),
+                          onPressed: () {
+                            // Add your onPressed logic here
+                            Navigator.pushNamed(context, '/reportsDetails');
+                          },
+                        ),
                       ],
                     ),
                     // Add text under "Report 4" here
@@ -270,7 +282,13 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Icon(Icons.arrow_right, size: 18.0),
+                        IconButton(
+                          icon: Icon(Icons.arrow_right, size: 18.0),
+                          onPressed: () {
+                            // Add your onPressed logic here
+                            Navigator.pushNamed(context, '/reportsDetails');
+                          },
+                        ),
                       ],
                     ),
                     // Add text under "Report 4" here
@@ -312,7 +330,13 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Icon(Icons.arrow_right, size: 18.0),
+                        IconButton(
+                          icon: Icon(Icons.arrow_right, size: 18.0),
+                          onPressed: () {
+                            // Add your onPressed logic here
+                            Navigator.pushNamed(context, '/reportsDetails');
+                          },
+                        ),
                       ],
                     ),
                     // Add text under "Report 4" here
