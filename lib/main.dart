@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors
 
-import 'dart:js';
+// import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -16,8 +16,8 @@ import 'components/dietPlan.dart';
 void main() => runApp(MaterialApp(
       routes: {
         // home: (),
-        '/': (context) => Dashboard(),
-
+        // '/': (context) => Dashboard(),
+        '/': (context) => DiabetesScreen(),
         // '/': (context) => DietPlan(),
         '/viewReports': (context) => ViewReportScreen(),
         '/diabetes': (context) => DiabetesScreen(),
