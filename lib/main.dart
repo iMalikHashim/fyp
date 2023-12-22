@@ -9,6 +9,7 @@ import 'components/dashboard.dart';
 import 'components/reportsDetails.dart';
 import 'components/viewReports.dart';
 import 'components/diabetes.dart';
+import 'components/bloodpressure.dart';
 import 'components/LoginSignup/LandingScreen.dart';
 import 'components/dietPlan.dart';
 
@@ -22,6 +23,7 @@ void main() => runApp(MaterialApp(
         '/diabetes': (context) => DiabetesScreen(),
         '/addReports': (context) => AddReportScreen(),
         '/reportsDetails': (context) => ReportsDetails(),
+        '/bloodpressure': (context) => BloodPressure(),
         // 'landingScreen': (context) => LandingScreen(),
         // Add other routes as needed
       },

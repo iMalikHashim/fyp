@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const Center(
-      child: Text('Hello World!'),
-    ));
+      body: Center(
+        child: Text('Hello World!'), // Remove this line
+      ),
+    );
   }
 }
 
@@ -24,14 +25,13 @@ class CKDGraphsPage extends StatelessWidget {
             _buildGraphCard(
               title: 'Blood Pressure',
               child: SizedBox(
-                height: 200, // Constrained height
+                height: 250, // Increase height for better visualization
                 child: LineChart(LineChartData(
                   gridData: FlGridData(
                     show: true,
                     drawVerticalLine: true,
                     drawHorizontalLine: true,
                   ),
-                  // Correct titlesData configuration here
                   borderData: FlBorderData(show: true),
                   lineBarsData: [
                     LineChartBarData(
@@ -54,7 +54,7 @@ class CKDGraphsPage extends StatelessWidget {
             _buildGraphCard(
               title: 'Sugar Level',
               child: SizedBox(
-                height: 200, // Constrained height
+                height: 250, // Increase height for better visualization
                 child: BarChart(BarChartData(
                   alignment: BarChartAlignment.spaceAround,
                   maxY: 10,
@@ -92,7 +92,7 @@ class CKDGraphsPage extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(height: 10),
-            child, // The chart widget is now constrained
+            child,
           ],
         ),
       ),
