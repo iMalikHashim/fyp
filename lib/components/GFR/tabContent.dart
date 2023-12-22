@@ -215,36 +215,33 @@ class Tab4Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: ListView(
         padding: EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (String item in content)
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 8.0,
-                      child: Icon(
-                        Icons.arrow_forward,
-                        size: 16.0,
-                      ),
+        children: [
+          for (String item in content)
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 8.0,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: 16.0,
                     ),
-                    SizedBox(width: 8.0),
-                    Expanded(
-                      child: Text(
-                        item,
-                        style: TextStyle(fontSize: 16.0),
-                      ),
+                  ),
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child: Text(
+                      item,
+                      style: TextStyle(fontSize: 16.0),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }

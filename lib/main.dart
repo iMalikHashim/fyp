@@ -7,6 +7,7 @@ import 'components/dashboard.dart';
 import 'components/reportsDetails.dart';
 import 'components/viewReports.dart';
 import 'components/diabetes.dart';
+import 'components/bloodpressure.dart';
 
 void main() => runApp(MaterialApp(
       routes: {
@@ -16,6 +17,6 @@ void main() => runApp(MaterialApp(
         '/diabetes': (context) => DiabetesScreen(),
         '/addReports': (context) => AddReportScreen(),
         '/reportsDetails': (context) => ReportsDetails(),
-        // Add other routes as needed
+        '/bloodpressure': (context) => BloodPressure(),
       },
     ));

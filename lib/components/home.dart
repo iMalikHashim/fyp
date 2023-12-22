@@ -180,44 +180,119 @@ class HomePage extends StatelessWidget {
                 color: Colors.cyan[800],
               ),
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
+                Column(
                   children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/bloodpressure');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/history.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
                     Padding(
-                        padding: EdgeInsets.fromLTRB(20.0, 10, 40, 10),
-                        child: Image(
-                            image: AssetImage('assets/images/history.png'))),
+                      padding: EdgeInsets.fromLTRB(10.0, 5, 20, 10),
+                      child: Text(
+                        'Blood Pressure',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/precautions');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/precautions.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
                     Padding(
-                        padding: EdgeInsets.fromLTRB(40.0, 10, 20, 10),
-                        child: Image(
-                            image: AssetImage('assets/images/precautions.png')))
+                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
+                      child: Text(
+                        'Precautions',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
+                Column(
                   children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/riskFactors');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/riskFactors.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
                     Padding(
-                        padding: EdgeInsets.fromLTRB(20.0, 10, 40, 10),
-                        child: Image(
-                            image:
-                                AssetImage('assets/images/riskFactors.png'))),
+                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
+                      child: Text(
+                        'Risk Factors',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/diabetes');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/consultaDoc.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
                     Padding(
-                        padding: EdgeInsets.fromLTRB(40.0, 10, 20, 10),
-                        child: Image(
-                            image: AssetImage('assets/images/consultaDoc.png')))
+                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
+                      child: Text(
+                        'Diabetes',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           ],
         ),
-      ), // Your eGFR page content here
+      ),
     );
   }
 }
