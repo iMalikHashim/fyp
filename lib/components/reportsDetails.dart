@@ -40,51 +40,52 @@ class _ReportsDetailsState extends State<ReportsDetails> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: topBar(),
-      body: Column(children: const <Widget>[
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 50.0,
-              ),
-              Text(
-                'Report 4',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26,
-                  color: Color(0xFF055B5C),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+        child: Column(children: const <Widget>[
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 50.0,
                 ),
-              ),
-            ],
-          ),
-        ),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 20.0,
-              ),
-              Text(
-                '17/08/2023',
-                style: TextStyle(
-                  // fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: Colors.black,
+                Text(
+                  'Report 4',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    color: Color(0xFF055B5C),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 20.0,
+                ),
+                Text(
+                  '17/08/2023',
+                  style: TextStyle(
+                    // fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -96,15 +97,9 @@ class _ReportsDetailsState extends State<ReportsDetails> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            ],
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              Divider(
+                color: Colors.cyan,
+              ),
               Text(
                 '112/20 ',
                 style: TextStyle(
@@ -116,17 +111,15 @@ class _ReportsDetailsState extends State<ReportsDetails> {
               ),
             ],
           ),
-        ]),
-        SizedBox(
-          height: 20,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Sugar Level:',
+                'Sugar Level:    ',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -134,15 +127,9 @@ class _ReportsDetailsState extends State<ReportsDetails> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            ],
-          ),
-          SizedBox(
-            width: 30.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              Divider(
+                color: Colors.cyan,
+              ),
               Text(
                 '112/20 ',
                 style: TextStyle(
@@ -154,13 +141,11 @@ class _ReportsDetailsState extends State<ReportsDetails> {
               ),
             ],
           ),
-        ]),
-        SizedBox(
-          height: 20,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -172,15 +157,9 @@ class _ReportsDetailsState extends State<ReportsDetails> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            ],
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              Divider(
+                color: Colors.cyan,
+              ),
               Text(
                 '112/20 ',
                 style: TextStyle(
@@ -192,13 +171,11 @@ class _ReportsDetailsState extends State<ReportsDetails> {
               ),
             ],
           ),
-        ]),
-        SizedBox(
-          height: 20,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -210,15 +187,9 @@ class _ReportsDetailsState extends State<ReportsDetails> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            ],
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              Divider(
+                color: Colors.cyan,
+              ),
               Text(
                 '112/20 ',
                 style: TextStyle(
@@ -230,13 +201,11 @@ class _ReportsDetailsState extends State<ReportsDetails> {
               ),
             ],
           ),
-        ]),
-        SizedBox(
-          height: 20,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -248,15 +217,9 @@ class _ReportsDetailsState extends State<ReportsDetails> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            ],
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              Divider(
+                color: Colors.cyan,
+              ),
               Text(
                 '112/20 ',
                 style: TextStyle(
@@ -269,7 +232,7 @@ class _ReportsDetailsState extends State<ReportsDetails> {
             ],
           ),
         ]),
-      ]),
+      ),
     );
   }
 }

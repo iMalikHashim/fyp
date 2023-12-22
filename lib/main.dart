@@ -10,12 +10,14 @@ import 'components/reportsDetails.dart';
 import 'components/viewReports.dart';
 import 'components/diabetes.dart';
 import 'components/LoginSignup/LandingScreen.dart';
+import 'components/dietPlan.dart';
 
 void main() => runApp(MaterialApp(
       routes: {
         // home: (),
-        // '/': (context) => Dashboard(),
-        '/': (context) => LandingScreen(),
+        '/': (context) => Dashboard(),
+
+        // '/': (context) => DietPlan(),
         '/viewReports': (context) => ViewReportScreen(),
         '/diabetes': (context) => DiabetesScreen(),
         '/addReports': (context) => AddReportScreen(),

@@ -42,7 +42,27 @@ class DietPlanState extends State<DietPlan> {
       appBar: topBar(),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[],
+        children: <Widget>[
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 50.0,
+                ),
+                Text(
+                  'Diet Recommendation',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    color: Color(0xFF055B5C),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
