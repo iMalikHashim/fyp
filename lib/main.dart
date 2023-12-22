@@ -12,12 +12,13 @@ import 'components/diabetes.dart';
 import 'components/bloodpressure.dart';
 import 'components/LoginSignup/LandingScreen.dart';
 import 'components/dietPlan.dart';
+import 'components/excerciseScreen.dart';
 
 void main() => runApp(MaterialApp(
       routes: {
         // home: (),
         // '/': (context) => Dashboard(),
-        '/': (context) => DiabetesScreen(),
+        '/': (context) => ExerciseScreen(),
         // '/': (context) => DietPlan(),
         '/viewReports': (context) => ViewReportScreen(),
         '/diabetes': (context) => DiabetesScreen(),
