@@ -13,8 +13,8 @@ class LandingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/LandingPage1.jpg'),
-            const SizedBox(height: 28),
+            Image.asset('assets/images/landingpage.png'),
+            const SizedBox(height: 24),
 
             // Main heading
             const Text(
