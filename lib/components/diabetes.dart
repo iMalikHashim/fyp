@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DiabetesScreen extends StatefulWidget {
   @override
@@ -9,17 +10,24 @@ class DiabetesScreen extends StatefulWidget {
 class _DiabetesScreenState extends State<DiabetesScreen> {
   final TextEditingController _bloodSugarController = TextEditingController();
   final TextEditingController _gfrRateController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
   List<FlSpot> bloodSugarSpots = [];
   List<FlSpot> gfrRateSpots = [];
-  int dayCounter = 0;
 
   void addData() {
+    final bloodSugar = double.parse(_bloodSugarController.text);
+    final gfrRate = double.parse(_gfrRateController.text);
+
+    // For future once Hajra Integrates it
+    // FirebaseFirestore.instance.collection('health_data').add({
+    //   'blood_sugar': bloodSugar,
+    //   'gfr_rate': gfrRate,
+    //   'date': selectedDate,
+    // });
+
     setState(() {
-      bloodSugarSpots.add(FlSpot(
-          dayCounter.toDouble(), double.parse(_bloodSugarController.text)));
-      gfrRateSpots.add(
-          FlSpot(dayCounter.toDouble(), double.parse(_gfrRateController.text)));
-      dayCounter++;
+      bloodSugarSpots.add(FlSpot(selectedDate.day.toDouble(), bloodSugar));
+      gfrRateSpots.add(FlSpot(selectedDate.day.toDouble(), gfrRate));
     });
   }
 
@@ -45,6 +53,7 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
               _buildInputField(
                   _bloodSugarController, 'Blood Sugar Level (mg/dL)'),
               _buildInputField(_gfrRateController, 'GFR Rate (mL/min/1.73 m²)'),
+              _buildDateSelector(),
               ElevatedButton(
                 onPressed: addData,
                 child: Text('Submit Data'),
@@ -77,6 +86,40 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
           filled: true,
         ),
         keyboardType: TextInputType.number,
+      ),
+    );
+  }
+
+  Widget _buildDateSelector() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Text(
+            'Select Date',
+            style: TextStyle(fontSize: 18),
+          ),
+          SizedBox(height: 10),
+          TextButton(
+            onPressed: () async {
+              final pickedDate = await showDatePicker(
+                context: context,
+                initialDate: selectedDate,
+                firstDate: DateTime(2000),
+                lastDate: DateTime.now(),
+              );
+              if (pickedDate != null && pickedDate != selectedDate) {
+                setState(() {
+                  selectedDate = pickedDate;
+                });
+              }
+            },
+            child: Text(
+              "${selectedDate.toLocal()}".split(' ')[0],
+              style: TextStyle(fontSize: 55, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
       ),
     );
   }
