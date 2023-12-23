@@ -2,9 +2,97 @@ import 'package:flutter/material.dart';
 
 class DoctorListPage extends StatelessWidget {
   final List<Map<String, dynamic>> doctors = [
-    {'name': 'Dr. John Doe', 'expertise': 'Nephrologist', 'location': 'New York', 'imageUrl': 'url_to_image'},
-    {'name': 'Dr. Jane Smith', 'expertise': 'Urologist', 'location': 'Los Angeles', 'imageUrl': 'url_to_image'},
-    //We'll use dynamic data 
+    {
+      'name': 'Dr. John Doe',
+      'expertise': 'Nephrologist',
+      'location': 'New York',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Jane Smith',
+      'expertise': 'Urologist',
+      'location': 'Los Angeles',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Michael Johnson',
+      'expertise': 'Cardiologist',
+      'location': 'Chicago',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Emily White',
+      'expertise': 'Pediatrician',
+      'location': 'Houston',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Daniel Brown',
+      'expertise': 'Dermatologist',
+      'location': 'Miami',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Jennifer Miller',
+      'expertise': 'Orthopedic Surgeon',
+      'location': 'San Francisco',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. David Lee',
+      'expertise': 'Psychiatrist',
+      'location': 'Seattle',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Sarah Taylor',
+      'expertise': 'Gynecologist',
+      'location': 'Dallas',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Christopher Harris',
+      'expertise': 'Ophthalmologist',
+      'location': 'Atlanta',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Jessica King',
+      'expertise': 'Endocrinologist',
+      'location': 'Boston',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Benjamin Wilson',
+      'expertise': 'Neurologist',
+      'location': 'Denver',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Olivia Martinez',
+      'expertise': 'Rheumatologist',
+      'location': 'Phoenix',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Ethan Davis',
+      'expertise': 'Gastroenterologist',
+      'location': 'Philadelphia',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Victoria Johnson',
+      'expertise': 'Oncologist',
+      'location': 'Washington D.C.',
+      'imageUrl': 'url_to_image'
+    },
+    {
+      'name': 'Dr. Nathan Turner',
+      'expertise': 'Allergist',
+      'location': 'Detroit',
+      'imageUrl': 'url_to_image'
+    },
+    // Add more doctors as needed
   ];
 
   @override
@@ -21,12 +109,14 @@ class DoctorListPage extends StatelessWidget {
               backgroundImage: NetworkImage(doctors[index]['imageUrl']!),
             ),
             title: Text(doctors[index]['name']!),
-            subtitle: Text('${doctors[index]['expertise']} - ${doctors[index]['location']}'),
+            subtitle: Text(
+                '${doctors[index]['expertise']} - ${doctors[index]['location']}'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DoctorProfilePage(doctor: doctors[index]),
+                  builder: (context) =>
+                      DoctorProfilePage(doctor: doctors[index]),
                 ),
               );
             },
@@ -37,10 +127,18 @@ class DoctorListPage extends StatelessWidget {
   }
 }
 
-class DoctorProfilePage extends StatelessWidget {
+class DoctorProfilePage extends StatefulWidget {
   final Map<String, dynamic> doctor;
 
   DoctorProfilePage({required this.doctor});
+
+  @override
+  _DoctorProfilePageState createState() => _DoctorProfilePageState();
+}
+
+class _DoctorProfilePageState extends State<DoctorProfilePage> {
+  String selectedDate = '';
+  String selectedTime = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,17 +152,17 @@ class DoctorProfilePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(doctor['imageUrl']!),
+              backgroundImage: NetworkImage(widget.doctor['imageUrl']!),
               radius: 50,
             ),
             SizedBox(height: 20),
             Text(
-              doctor['name']!,
+              widget.doctor['name']!,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Text(
-              '${doctor['expertise']} - ${doctor['location']}',
+              '${widget.doctor['expertise']} - ${widget.doctor['location']}',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 20),
@@ -87,16 +185,30 @@ class DoctorProfilePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 7,
                 itemBuilder: (context, index) {
-                  // You may want to replace this with actual dates
-                  return Container(
-                    margin: EdgeInsets.all(8),
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Center(
-                      child: Text('Date ${index + 1}'),
+                  final date = DateTime.now().add(Duration(days: index));
+                  final formattedDate =
+                      "${date.day}/${date.month}/${date.year}";
+
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedDate = formattedDate;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: selectedDate == formattedDate
+                              ? Colors.blue
+                              : Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Center(
+                        child: Text(formattedDate),
+                      ),
                     ),
                   );
                 },
@@ -123,23 +235,34 @@ class DoctorProfilePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Appointment Booked'),
-                      content: Text('Your appointment has been booked with ${doctor['name']}!'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('OK'),
+                if (selectedDate.isNotEmpty && selectedTime.isNotEmpty) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Appointment Booked'),
+                        content: Text(
+                          'Your appointment has been booked with ${widget.doctor['name']} on $selectedDate at $selectedTime!',
                         ),
-                      ],
-                    );
-                  },
-                );
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                          'Please select date and time before booking an appointment.'),
+                    ),
+                  );
+                }
               },
               child: Text('Book Appointment'),
             ),
@@ -150,15 +273,24 @@ class DoctorProfilePage extends StatelessWidget {
   }
 
   Widget buildTiming(String timing) {
-    return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Center(
-        child: Text(timing),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedTime = timing;
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.all(8),
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: selectedTime == timing ? Colors.blue : Colors.grey,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+          child: Text(timing),
+        ),
       ),
     );
   }
