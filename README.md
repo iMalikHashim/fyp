@@ -1,6 +1,6 @@
-# fyp
+# Final Year Project
 
-A new Flutter project.
+Chronic Kidney Disease Risk Factor Assessment App
 
 ## Getting Started
 
