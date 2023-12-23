@@ -2,6 +2,7 @@
 
 // import 'dart:js';
 
+import 'components/doctorsList.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:fyp/components/addReports.dart';
@@ -16,7 +17,7 @@ import 'components/dietPlan.dart';
 void main() => runApp(MaterialApp(
       routes: {
         // home: (),
-        '/': (context) => Dashboard(),
+        '/': (context) => DoctorListPage(),
 
         // '/': (context) => DietPlan(),
         '/viewReports': (context) => ViewReportScreen(),
