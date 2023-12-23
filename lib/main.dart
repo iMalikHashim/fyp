@@ -17,7 +17,7 @@ import 'components/dietPlan.dart';
 void main() => runApp(MaterialApp(
       routes: {
         // home: (),
-        '/': (context) => DoctorListPage(),
+        '/': (context) => Dashboard(),
 
         // '/': (context) => DietPlan(),
         '/viewReports': (context) => ViewReportScreen(),

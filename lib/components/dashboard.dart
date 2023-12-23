@@ -27,7 +27,8 @@ class _DashboardNavigation extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar(),
+      appBar: topBar(context),
+      drawer: AppDrawer(),
       body: _buildBody(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -62,17 +63,26 @@ class _DashboardNavigation extends State<Dashboard> {
     );
   }
 
-  AppBar topBar() {
+  AppBar topBar(BuildContext context) {
     return AppBar(
       title: const Text(
         'CKD',
         style: TextStyle(color: Colors.black),
       ),
       backgroundColor: Colors.white,
-      leading: const Icon(
-        Icons.menu,
-        color: Colors.black,
-        size: 30.0,
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 30.0,
+            ),
+          );
+        },
       ),
       actions: [
         IconButton(
@@ -121,6 +131,51 @@ class _DashboardNavigation extends State<Dashboard> {
     // Replace with your settings page content
     return Center(
       child: Text('Settings Page'),
+    );
+  }
+}
+
+class AppDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('NephroFit'),
+          ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              // We will use for navigation
+              // For example, Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+          ),
+          ListTile(
+            title: Text('Add Report'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Calculate eGFR'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Settings'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
     );
   }
 }
