@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp/components/dietRecommendations.dart';
 import 'home.dart';
 import 'calculateGFR.dart';
 
@@ -108,9 +109,7 @@ class _DashboardNavigation extends State<Dashboard> {
 
   Widget _buildAddReport() {
     // Replace with your add report page content
-    return Center(
-      child: Text('Add Report Page'),
-    );
+    return DietRecommendations();
   }
 
   Widget _buildEGFRPage() {
