@@ -1,7 +1,12 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart';
 
 class AddReportScreen extends StatefulWidget {
   const AddReportScreen({super.key});
@@ -15,6 +20,60 @@ class _AddReportScreenState extends State<AddReportScreen> {
   var bloodPressure = TextEditingController();
   var sugarLevel = TextEditingController();
   var cholestrolLevel = TextEditingController();
+  Future addData({
+    required String bp,
+    required String sugarLevel,
+    required String cholestrolLevel,
+  }) async {
+    final docUser =
+        FirebaseFirestore.instance.collection('test').doc('add_id_here');
+    final json = {
+      'bp': bp,
+      'sugarLevel': sugarLevel,
+      'cholestrolLevel': cholestrolLevel,
+    };
+    await docUser.set(json);
+    final response = await post(Uri.http("10.0.2.2:8000", "/answers"), body: {
+      "Bp": '70',
+      "Sg": '1.020',
+      "Al": '1',
+      "Su": '0',
+      "Rbc": '1',
+      "Bu": '94.0',
+      "Sc": '7.3',
+      "Sod": '137.00',
+      "Pot": '4.30',
+      "Hemo": '7.9',
+      "Wbcc": '8406',
+      "Rbcc": '4.71'
+    });
+    // const url = 'http://127.0.0.1:8000/answers';
+    // final response = await http.post(
+    //   Uri.parse(url),
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: jsonEncode({
+    //     "Bp": 70,
+    //     "Sg": 1.020,
+    //     "Al": 1,
+    //     "Su": 0,
+    //     "Rbc": 1,
+    //     "Bu": 94.0,
+    //     "Sc": 7.3,
+    //     "Sod": 137.00,
+    //     "Pot": 4.30,
+    //     "Hemo": 7.9,
+    //     "Wbcc": 8406,
+    //     "Rbcc": 4.71
+    //   }),
+    // );
+
+    if (response.statusCode == 200) {
+      print('Data sent successfully');
+    } else {
+      print('Failed to send data. Status code: ${response.statusCode}');
+    }
+  }
+
   AppBar topBar() {
     return AppBar(
       title: const Text(
@@ -240,18 +299,25 @@ class _AddReportScreenState extends State<AddReportScreen> {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              padding:
-                  EdgeInsets.only(right: 16.0), // Adjust the padding as needed
+              padding: EdgeInsets.only(right: 16.0),
               child: ElevatedButton(
                 onPressed: () {
                   String ubloodpressure = bloodPressure.text;
                   String uCholestrolLevel = cholestrolLevel.text;
                   String uSugarLevel = sugarLevel.text;
+
                   print(
                       "Blood pressure: $ubloodpressure, Sugar Level: $uSugarLevel, Cholestrol Level: $uCholestrolLevel");
+
+                  // Call the modified addData function
+                  addData(
+                    bp: ubloodpressure,
+                    sugarLevel: uSugarLevel,
+                    cholestrolLevel: uCholestrolLevel,
+                  );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF055B5C), // Set the desired color
+                  primary: Color(0xFF055B5C),
                 ),
                 child: const Text('Save'),
               ),

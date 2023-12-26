@@ -5,7 +5,7 @@
 import 'components/doctorsList.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:firebase_core/firebase_core.dart'; // Add this line
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fyp/components/addReports.dart';
 import 'package:fyp/firebase_options.dart';
 import 'components/dashboard.dart';
@@ -19,9 +19,20 @@ import 'components/dietPlan.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: 'AIzaSyCnNhUx2Hhu7-YhTLSCdHk7RqZKK4MBXT4',
+        authDomain: 'fypckd.firebaseapp.com', // Add your authDomain
+        appId: '1:372513038054:android:eed0d9fdb9a34bf7e5e527',
+        messagingSenderId: '372513038054',
+        projectId: 'fypckd',
+        storageBucket: 'fypckd.appspot.com',
+      ),
+    );
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+  }
 
   runApp(MaterialApp(
     routes: {
