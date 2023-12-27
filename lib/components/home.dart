@@ -32,19 +32,19 @@ class HomePage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          const Text(
-                            'View reports',
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.arrow_circle_right_outlined,
-                              color: Color.fromARGB(255, 14, 7, 7),
-                              size: 30.0,
-                            ),
-                            color: Colors.black,
-                          ),
+                          // const Text(
+                          //   'View reports',
+                          //   style: TextStyle(fontSize: 16, color: Colors.grey),
+                          // ),
+                          // IconButton(
+                          //   onPressed: () {},
+                          //   icon: const Icon(
+                          //     Icons.arrow_circle_right_outlined,
+                          //     color: Color.fromARGB(255, 14, 7, 7),
+                          //     size: 30.0,
+                          //   ),
+                          //   color: Colors.black,
+                          // ),
                         ],
                       ),
                     ],
@@ -213,61 +213,6 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Navigate or perform action on image click
-                        Navigator.pushNamed(context, '/precautions');
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
-                        child: Image.asset(
-                          'assets/images/precautions.png',
-                          width: 40,
-                          height: 40,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
-                      child: Text(
-                        'Precautions',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        // Navigate or perform action on image click
-                        Navigator.pushNamed(context, '/riskFactors');
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
-                        child: Image.asset(
-                          'assets/images/riskFactors.png',
-                          width: 40,
-                          height: 40,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
-                      child: Text(
-                        'Risk Factors',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        // Navigate or perform action on image click
                         Navigator.pushNamed(context, '/diabetes');
                       },
                       child: Padding(
@@ -283,6 +228,61 @@ class HomePage extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
                       child: Text(
                         'Diabetes',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/exercise');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(45.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/riskFactors.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(45.0, 5, 20, 10),
+                      child: Text(
+                        'Exercise',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate or perform action on image click
+                        Navigator.pushNamed(context, '/dietRecommendation');
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(55.0, 10, 10, 0),
+                        child: Image.asset(
+                          'assets/images/precautions.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(30.0, 5, 20, 10),
+                      child: Text(
+                        'Diet Suggestions',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
