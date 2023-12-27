@@ -32,19 +32,19 @@ class HomePage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          // const Text(
-                          //   'View reports',
-                          //   style: TextStyle(fontSize: 16, color: Colors.grey),
-                          // ),
-                          // IconButton(
-                          //   onPressed: () {},
-                          //   icon: const Icon(
-                          //     Icons.arrow_circle_right_outlined,
-                          //     color: Color.fromARGB(255, 14, 7, 7),
-                          //     size: 30.0,
-                          //   ),
-                          //   color: Colors.black,
-                          // ),
+                          const Text(
+                            'View reports',
+                            style: TextStyle(fontSize: 16, color: Colors.grey),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.arrow_circle_right_outlined,
+                              color: Color.fromARGB(255, 14, 7, 7),
+                              size: 30.0,
+                            ),
+                            color: Colors.black,
+                          ),
                         ],
                       ),
                     ],
@@ -213,12 +213,12 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Navigate or perform action on image click
-                        Navigator.pushNamed(context, '/diabetes');
+                        Navigator.pushNamed(context, '/precautions');
                       },
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
                         child: Image.asset(
-                          'assets/images/consultaDoc.png',
+                          'assets/images/precautions.png',
                           width: 40,
                           height: 40,
                         ),
@@ -227,7 +227,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
                       child: Text(
-                        'Diabetes',
+                        'Precautions',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
@@ -243,10 +243,10 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Navigate or perform action on image click
-                        Navigator.pushNamed(context, '/exercise');
+                        Navigator.pushNamed(context, '/riskFactors');
                       },
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(45.0, 10, 10, 0),
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
                         child: Image.asset(
                           'assets/images/riskFactors.png',
                           width: 40,
@@ -255,9 +255,9 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45.0, 5, 20, 10),
+                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
                       child: Text(
-                        'Exercise',
+                        'Risk Factors',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
@@ -268,21 +268,21 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Navigate or perform action on image click
-                        Navigator.pushNamed(context, '/dietRecommendation');
+                        Navigator.pushNamed(context, '/diabetes');
                       },
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(55.0, 10, 10, 0),
+                        padding: EdgeInsets.fromLTRB(20.0, 10, 10, 0),
                         child: Image.asset(
-                          'assets/images/precautions.png',
+                          'assets/images/consultaDoc.png',
                           width: 40,
                           height: 40,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(30.0, 5, 20, 10),
+                      padding: EdgeInsets.fromLTRB(20.0, 5, 20, 10),
                       child: Text(
-                        'Diet Suggestions',
+                        'Diabetes',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/components/addReports.dart';
-import 'package:fyp/components/AI_prediction.dart';
+import 'package:fyp/components/dietRecommendations.dart';
 import 'home.dart';
 import 'calculateGFR.dart';
 
@@ -18,6 +17,11 @@ class _DashboardNavigation extends State<Dashboard> {
     setState(() {
       _selectedIndex = index;
     });
+
+    // Check the selected index and navigate accordingly
+    if (_selectedIndex == 2) {
+      // Do nothing for now or perform any additional actions as needed
+    }
   }
 
   @override
@@ -44,8 +48,8 @@ class _DashboardNavigation extends State<Dashboard> {
             backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bolt),
-            label: 'AI Prediction',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
             backgroundColor: Colors.white,
           ),
         ],
@@ -62,7 +66,7 @@ class _DashboardNavigation extends State<Dashboard> {
   AppBar topBar(BuildContext context) {
     return AppBar(
       title: const Text(
-        'NephroFit',
+        'CKD',
         style: TextStyle(color: Colors.black),
       ),
       backgroundColor: Colors.white,
@@ -81,14 +85,14 @@ class _DashboardNavigation extends State<Dashboard> {
         },
       ),
       actions: [
-        // IconButton(
-        //   onPressed: () => {},
-        //   icon: const Icon(
-        //     Icons.notifications,
-        //     color: Colors.black,
-        //     size: 30.0,
-        //   ),
-        // ),
+        IconButton(
+          onPressed: () => {},
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.black,
+            size: 30.0,
+          ),
+        ),
       ],
     );
   }
@@ -115,7 +119,7 @@ class _DashboardNavigation extends State<Dashboard> {
 
   Widget _buildAddReport() {
     // Replace with your add report page content
-    return const AddReportScreen();
+    return DietRecommendations();
   }
 
   Widget _buildEGFRPage() {
@@ -125,7 +129,9 @@ class _DashboardNavigation extends State<Dashboard> {
 
   Widget _buildSettings() {
     // Replace with your settings page content
-    return PredictionScreen();
+    return Center(
+      child: Text('Settings Page'),
+    );
   }
 }
 
@@ -136,14 +142,14 @@ class AppDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
             child: Text('NephroFit'),
           ),
           ListTile(
-            title: const Text('Home'),
+            title: Text('Home'),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // We will use for navigation
@@ -151,19 +157,19 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Add Report'),
+            title: Text('Add Report'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('Calculate eGFR'),
+            title: Text('Calculate eGFR'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('Settings'),
+            title: Text('Settings'),
             onTap: () {
               Navigator.pop(context);
             },
