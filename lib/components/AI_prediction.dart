@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
-class AddReportScreen extends StatefulWidget {
-  const AddReportScreen({super.key});
+class PredictionScreen extends StatefulWidget {
+  const PredictionScreen({super.key});
 
   @override
-  State<AddReportScreen> createState() => _AddReportScreenState();
+  State<PredictionScreen> createState() => _PredictionScreenState();
 }
 
-class _AddReportScreenState extends State<AddReportScreen> {
+class _PredictionScreenState extends State<PredictionScreen> {
   int selectedButtonIndex = 0;
   var bloodPressure = TextEditingController();
   var specificGravity = TextEditingController();
@@ -116,82 +116,20 @@ class _AddReportScreenState extends State<AddReportScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: topBar(context),
+        // appBar: topBar(context),
         body: SingleChildScrollView(
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 90.0,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedButtonIndex = 0;
-                        });
-                        // Navigate to the ViewReports screen using the named route
-                        Navigator.pushNamed(context, '/addReports');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: selectedButtonIndex == 0
-                            ? Colors.white
-                            : Color(0xFF055B5C),
-                        onPrimary: Colors.black,
-                        side: BorderSide(
-                          color: selectedButtonIndex == 0
-                              ? Color(0xFF055B5C)
-                              : Colors.transparent,
-                          width: 1.0, // Adjust the width as needed
-                        ),
-                      ),
-                      child: Text(
-                        'Add Reports',
-                        style: TextStyle(
-                          color: selectedButtonIndex == 0
-                              ? Colors.black
-                              : Colors.white,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 4.0,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedButtonIndex = 1;
-                        });
-                        // Navigate to the ViewReports screen using the named route
-                        Navigator.pushNamed(context, '/viewReports');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: selectedButtonIndex == 1
-                            ? Colors.white
-                            : Color(0xFF055B5C),
-                        onPrimary: Colors.black,
-                        side: BorderSide(
-                          color: selectedButtonIndex == 1
-                              ? Color(0xFF055B5C)
-                              : Colors.transparent,
-                          width: 1.0, // Adjust the width as needed
-                        ),
-                      ),
-                      child: Text(
-                        'View Reports',
-                        style: TextStyle(
-                          color: selectedButtonIndex == 1
-                              ? Colors.black
-                              : Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+              Text(
+                'Enter your details to view AI Prediction',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0, // Adjust the font size as needed
+                  // You can also customize other text styles here, such as color, etc.
                 ),
               ),
+
               Center(
                 child: Container(
                   width: 300,
