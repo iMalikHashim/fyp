@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,6 +16,18 @@ class _AddReportScreenState extends State<AddReportScreen> {
   var bloodPressure = TextEditingController();
   var sugarLevel = TextEditingController();
   var cholestrolLevel = TextEditingController();
+  Future addData({required String bp}) async {
+    final docUser =
+        FirebaseFirestore.instance.collection('test').doc('add_id_here');
+    final json = {
+      //add key value pairs here
+      'bp': bloodPressure,
+      'sugarLevel': sugarLevel,
+      'cholestrolLevel': cholestrolLevel,
+    };
+    await docUser.set(json);
+  }
+
   AppBar topBar() {
     return AppBar(
       title: const Text(
@@ -249,6 +262,7 @@ class _AddReportScreenState extends State<AddReportScreen> {
                   String uSugarLevel = sugarLevel.text;
                   print(
                       "Blood pressure: $ubloodpressure, Sugar Level: $uSugarLevel, Cholestrol Level: $uCholestrolLevel");
+                  addData(bp: ubloodpressure);
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xFF055B5C), // Set the desired color
