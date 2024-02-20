@@ -2,6 +2,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fyp/components/LoginSignup/LandingScreen.dart';
+import 'package:fyp/components/dashboard.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -170,19 +172,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       // For now, let's use a placeholder user ID
                       String userId = 'placeholderUserId';
 
-                      // Add user data to Firestore
-                      await FirebaseFirestore.instance
-                          .collection('patients')
-                          .doc(userId)
-                          .set({
-                        'firstName': firstName,
-                        'lastName': lastName,
-                        'email': email,
-                        // Add more fields as needed
-                      });
+                      // // Add user data to Firestore
+                      // await FirebaseFirestore.instance
+                      //     .collection('patients')
+                      //     .doc(userId)
+                      //     .set({
+                      //   'firstName': firstName,
+                      //   'lastName': lastName,
+                      //   'email': email,
+                      //   // Add more fields as needed
+                      // });
 
                       // Navigate to another screen if needed
                       // Navigator.push(context, MaterialPageRoute(builder: (context) => AnotherScreen()));
+                      // ignore: use_build_context_synchronously
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dashboard()));
                     }
                   },
                   style: ElevatedButton.styleFrom(
