@@ -161,38 +161,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       String email = emailController.text;
                       String password = passwordController.text;
 
-                      // Create user in Firebase Authentication
-                      // (You might want to implement user authentication with Firebase Auth first)
-                      // FirebaseUser user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      //   email: email,
-                      //   password: password,
-                      // );
-                      // String userId = user.uid;
-
-                      // For now, let's use a placeholder user ID
                       String userId = 'placeholderUserId';
 
-                      // // Add user data to Firestore
-                      // await FirebaseFirestore.instance
-                      //     .collection('patients')
-                      //     .doc(userId)
-                      //     .set({
-                      //   'firstName': firstName,
-                      //   'lastName': lastName,
-                      //   'email': email,
-                      //   // Add more fields as needed
-                      // });
+                      // Add user data to Firestore
+                      await FirebaseFirestore.instance
+                          .collection('patients')
+                          .doc(userId)
+                          .set({
+                        'firstName': firstName,
+                        'lastName': lastName,
+                        'email': email,
+                      });
 
-                      // Navigate to another screen if needed
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => AnotherScreen()));
-                      // ignore: use_build_context_synchronously
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Dashboard()));
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(
-                        255, 15, 106, 107), // Set the button color
+                    backgroundColor: Color.fromARGB(255, 15, 106, 107),
                     minimumSize: const Size(200, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
