@@ -1,3 +1,4 @@
+import 'package:fyp/DoctorModule/login/doctorSignup.dart';
 import 'package:fyp/components/dietRecommendations.dart';
 import 'package:fyp/components/splash_screen.dart';
 
@@ -44,9 +45,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(), // Set the splash screen as the home screen
+      home: const SplashScreen(),
       routes: {
-        // Define your other routes here
         '/dashboard': (context) => const Dashboard(),
         '/landingPage': (context) => LandingScreen(),
         '/viewReports': (context) => ViewReportScreen(),
@@ -56,9 +56,11 @@ class MyApp extends StatelessWidget {
         '/bloodpressure': (context) => const BloodPressure(),
         '/exercise': (context) => ExerciseScreen(),
         '/dietRecommendation': (context) => DietRecommendations(),
+
+        //doctor routes
+        '/doctorSignup': (context) => const DoctorSignup(),
       },
       theme: ThemeData(
-        // Your theme data
         primarySwatch: const MaterialColor(0xFF08979D, {
           50: Color(0xFFE6F5F6),
           100: Color(0xFFB3E2E7),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp/DoctorModule/login/doctorSignup.dart';
 import 'package:fyp/components/LoginSignup/LandingScreen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,9 +10,13 @@ class SplashScreen extends StatelessWidget {
     // Simulate a delay of 2 seconds (adjust as needed)
     Future.delayed(const Duration(seconds: 2), () {
       // Navigate to the main content of your app
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => LandingScreen()),
+      // );
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LandingScreen()),
+        MaterialPageRoute(builder: (context) => DoctorSignup()),
       );
     });
 
