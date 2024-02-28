@@ -664,7 +664,7 @@ class _PredictionScreenState extends State<PredictionScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF055B5C),
+                      backgroundColor: Color(0xFF055B5C),
                     ),
                     child: const Text('Save'),
                   ),

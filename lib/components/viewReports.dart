@@ -59,10 +59,10 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                     Navigator.pushNamed(context, '/addReports');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: selectedButtonIndex == 0
+                    foregroundColor: Colors.black,
+                    backgroundColor: selectedButtonIndex == 0
                         ? Colors.white
                         : Color(0xFF055B5C),
-                    onPrimary: Colors.black,
                     side: BorderSide(
                       color: selectedButtonIndex == 0
                           ? Color(0xFF055B5C)
@@ -89,10 +89,10 @@ class _ViewReportScreenState extends State<ViewReportScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: selectedButtonIndex == 1
+                    foregroundColor: Colors.black,
+                    backgroundColor: selectedButtonIndex == 1
                         ? Colors.white
                         : Color(0xFF055B5C),
-                    onPrimary: Colors.black,
                     side: BorderSide(
                       color: selectedButtonIndex == 1
                           ? Color(0xFF055B5C)

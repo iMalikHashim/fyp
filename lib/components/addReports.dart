@@ -137,10 +137,10 @@ class _AddReportScreenState extends State<AddReportScreen> {
                         Navigator.pushNamed(context, '/addReports');
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: selectedButtonIndex == 0
+                        foregroundColor: Colors.black,
+                        backgroundColor: selectedButtonIndex == 0
                             ? Colors.white
                             : Color(0xFF055B5C),
-                        onPrimary: Colors.black,
                         side: BorderSide(
                           color: selectedButtonIndex == 0
                               ? Color(0xFF055B5C)
@@ -169,10 +169,10 @@ class _AddReportScreenState extends State<AddReportScreen> {
                         Navigator.pushNamed(context, '/viewReports');
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: selectedButtonIndex == 1
+                        foregroundColor: Colors.black,
+                        backgroundColor: selectedButtonIndex == 1
                             ? Colors.white
                             : Color(0xFF055B5C),
-                        onPrimary: Colors.black,
                         side: BorderSide(
                           color: selectedButtonIndex == 1
                               ? Color(0xFF055B5C)
@@ -726,7 +726,7 @@ class _AddReportScreenState extends State<AddReportScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF055B5C),
+                      backgroundColor: Color(0xFF055B5C),
                     ),
                     child: const Text('Save'),
                   ),

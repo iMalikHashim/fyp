@@ -110,7 +110,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
                       bp, sg, al, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc);
                 },
                 child: Text('Generate Recommendation'),
-                style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: Colors.lightBlue),
               ),
               SizedBox(height: 20.0),
               Text(

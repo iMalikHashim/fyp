@@ -57,7 +57,8 @@ class _DiabetesScreenState extends State<DiabetesScreen> {
               ElevatedButton(
                 onPressed: addData,
                 child: Text('Submit Data'),
-                style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: Colors.lightBlue),
               ),
               _buildGraphCard(
                 title: 'Blood Sugar Level Over Time',
