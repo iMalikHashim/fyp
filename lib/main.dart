@@ -1,6 +1,7 @@
 import 'package:fyp/DoctorModule/login/doctorSignup.dart';
 import 'package:fyp/components/dietRecommendations.dart';
 import 'package:fyp/components/splash_screen.dart';
+import 'package:fyp/model/reportModel.dart';
 
 import 'components/Appointments/requestAppointment.dart';
 import 'components/doctorsList.dart';
@@ -46,7 +47,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      initialRoute: '/Report',
       routes: {
+        '/Report': (context) => ReportList(),
         '/dashboard': (context) => const Dashboard(),
         '/landingPage': (context) => LandingScreen(),
         '/viewReports': (context) => ViewReportScreen(),
