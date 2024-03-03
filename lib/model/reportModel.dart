@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class Report {
   String userId;
@@ -65,5 +66,78 @@ class Report {
       'Su': su,
       'Wbcc': wbcc,
     };
+  }
+}
+
+class ReportCard extends StatelessWidget {
+  final Report report;
+
+  const ReportCard({required this.report});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text('User ID: ${report.userId}'),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('AL: ${report.al}'),
+            Text('BP: ${report.bp}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ReportList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('reports').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (snapshot.hasError) {
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
+          );
+        }
+        final List<Report> reports =
+            snapshot.data!.docs.map((doc) => Report.fromDocument(doc)).toList();
+        return ListView.builder(
+          itemCount: reports.length,
+          itemBuilder: (context, index) {
+            return ReportCard(report: reports[index]);
+          },
+        );
+      },
+    );
+  }
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Health Reports',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Health Reports'),
+        ),
+        body: ReportList(),
+      ),
+    );
   }
 }
