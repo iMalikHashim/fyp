@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.13.6
   flat_list: ^0.1.14
   flutter_hooks: ^0.20.5
+  intl: ^0.19.0
 dependency_overrides:
   firebase_auth: ^4.7.1
   firebase_auth_platform_interface: ^6.16.0

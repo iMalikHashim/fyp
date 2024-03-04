@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fyp/components/Appointments/allAppointments.dart';
+import 'package:fyp/components/Appointments/historyAppointments.dart';
 import 'package:fyp/components/Appointments/requestAppointment.dart';
 import 'package:fyp/components/Appointments/scheduleAppointments.dart';
+import 'package:fyp/components/Appointments/todaysAppointment.dart';
 
 class ManageAppointments extends StatelessWidget {
   @override
@@ -45,6 +48,10 @@ class AppointmentOptions extends StatelessWidget {
           icon: Icons.calendar_today, // Add icon
           onTap: () {
             // Navigate to view today's appointments screen
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TodaysAppointment()),
+            );
           },
         ),
         _buildListItem(
@@ -67,6 +74,10 @@ class AppointmentOptions extends StatelessWidget {
           icon: Icons.history, // Add icon
           onTap: () {
             // Navigate to view appointments history screen
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HistoryAppointments()),
+            );
           },
         ),
         _buildListItem(
@@ -76,8 +87,32 @@ class AppointmentOptions extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => todaysAppointment()),
+              MaterialPageRoute(builder: (context) => RequestAppointment()),
             );
+            // Navigate to view appointment requests screen
+          },
+        ),
+        _buildListItem(
+          context,
+          title: "View All Appointment ",
+          icon: Icons.list, // Add icon
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AllAppointments()),
+            );
+            // Navigate to view appointment requests screen
+          },
+        ),
+        _buildListItem(
+          context,
+          title: "View Cancelled Appointments ",
+          icon: Icons.cancel, // Add icon
+          onTap: () {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => RequestAppointment()),
+            // );
             // Navigate to view appointment requests screen
           },
         ),
