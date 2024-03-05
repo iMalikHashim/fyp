@@ -86,7 +86,7 @@ class PeopleList extends StatelessWidget {
   }
 }
 
-class todaysAppointment extends StatelessWidget {
+class RequestAppointment extends StatelessWidget {
   AppBar topBar(BuildContext context) {
     return AppBar(
       title: Text(

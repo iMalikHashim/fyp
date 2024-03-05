@@ -16,12 +16,12 @@ class DetailsScreen extends StatelessWidget {
         // centerTitle: true,
         backgroundColor: Color(0xFF08979D),
         foregroundColor: Colors.white,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(25),
-            bottomLeft: Radius.circular(25),
-          ),
-        ),
+        // shape: const RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.only(
+        //     bottomRight: Radius.circular(25),
+        //     bottomLeft: Radius.circular(25),
+        //   ),
+        // ),
         elevation: 0.0,
       ),
       body: Padding(
