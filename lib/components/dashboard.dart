@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fyp/components/addReports.dart';
 import 'package:fyp/components/AI_prediction.dart';
+import 'package:fyp/components/DoctorSearchPage.dart';
 import 'home.dart';
 import 'calculateGFR.dart';
 
@@ -148,6 +149,14 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context); // Close the drawer
               // We will use for navigation
               // For example, Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+          ),
+          ListTile(
+            title: const Text('Doctor Search'),
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DoctorSearchPage()));
             },
           ),
           ListTile(
