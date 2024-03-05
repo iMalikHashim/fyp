@@ -6,7 +6,7 @@ import 'home.dart';
 import 'calculateGFR.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  const Dashboard({super.key});
 
   @override
   _DashboardNavigation createState() => _DashboardNavigation();
@@ -111,8 +111,14 @@ class _DashboardNavigation extends State<Dashboard> {
 
   Widget _buildHome() {
     // Replace with your home page content
-    return HomePage();
+    return DoctorSearchPage();
+    // return HomePage();
   }
+
+  // Widget _buildDrSearch() {
+  //   // Replace with your home page content
+  //   return DoctorSearchPage();
+  // }
 
   Widget _buildAddReport() {
     // Replace with your add report page content
@@ -154,7 +160,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Doctor Search'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.pop(context); // Close thse drawer
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DoctorSearchPage()));
             },
