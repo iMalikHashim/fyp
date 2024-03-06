@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp/components/LoginSignup/LandingScreen.dart';
-import 'package:fyp/components/dashboard.dart';
+import 'package:fyp/components/patientDashboard.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -173,8 +173,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'email': email,
                       });
 
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Dashboard()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PatientDashboard()));
                     }
                   },
                   style: ElevatedButton.styleFrom(

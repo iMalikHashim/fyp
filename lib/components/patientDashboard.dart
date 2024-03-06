@@ -5,14 +5,14 @@ import 'package:fyp/components/DoctorSearchPage.dart';
 import 'home.dart';
 import 'calculateGFR.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+class PatientDashboard extends StatefulWidget {
+  const PatientDashboard({super.key});
 
   @override
   _DashboardNavigation createState() => _DashboardNavigation();
 }
 
-class _DashboardNavigation extends State<Dashboard> {
+class _DashboardNavigation extends State<PatientDashboard> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {

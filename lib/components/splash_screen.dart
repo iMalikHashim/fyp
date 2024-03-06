@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/DoctorModule/login/doctorSignup.dart';
+import 'package:fyp/DoctorModule/login/signUp.dart';
 import 'package:fyp/components/LoginSignup/LandingScreen.dart';
 
 class SplashScreen extends StatelessWidget {

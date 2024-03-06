@@ -3,6 +3,7 @@ import 'package:fyp/components/addReports.dart';
 import 'package:fyp/components/AI_prediction.dart';
 import 'package:fyp/components/home.dart';
 import 'package:fyp/components/calculateGFR.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -109,7 +110,6 @@ class _DashboardNavigation extends State<Dashboard> {
   }
 
   Widget _buildHome() {
-    // Replace with your home page content
     return HomePage();
   }
 
@@ -125,13 +125,14 @@ class _DashboardNavigation extends State<Dashboard> {
 
   Widget _buildSettings() {
     // Replace with your settings page content
-    return PredictionScreen();
+    return const PredictionScreen();
   }
 }
 
 class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    retrieveStoredData();
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -145,13 +146,11 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Home'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
-              // We will use for navigation
-              // For example, Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+              Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('Add Report'),
+            title: const Text('Add Appointment'),
             onTap: () {
               Navigator.pop(context);
             },
@@ -171,5 +170,15 @@ class AppDrawer extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> retrieveStoredData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? email = prefs.getString('email');
+    String? userId = prefs.getString('userId');
+
+    // Use the retrieved data as needed
+    print('Retrieved email: $email');
+    print('Retrieved userId: $userId');
   }
 }

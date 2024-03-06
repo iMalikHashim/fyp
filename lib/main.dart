@@ -1,16 +1,16 @@
-import 'package:fyp/DoctorModule/login/doctorSignup.dart';
+import 'package:fyp/DoctorModule/login/signUp.dart';
 import 'package:fyp/components/Appointments/manageAppointments.dart';
 import 'package:fyp/components/dietRecommendations.dart';
 import 'package:fyp/components/splash_screen.dart';
 import 'package:fyp/model/reportModel.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'components/Appointments/requestAppointment.dart';
 import 'components/doctorsList.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fyp/components/addReports.dart';
 import 'package:fyp/firebase_options.dart';
-import 'components/dashboard.dart';
+import 'components/patientDashboard.dart';
 import 'components/reportsDetails.dart';
 import 'components/viewReports.dart';
 import 'components/diabetes.dart';
@@ -36,6 +36,7 @@ void main() async {
   } catch (e) {
     print('Error initializing Firebase: $e');
   }
+  await SharedPreferences.getInstance();
 
   runApp(const MyApp());
 }
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         '/Report': (context) => ReportList(),
-        '/dashboard': (context) => const Dashboard(),
+        '/dashboard': (context) => const PatientDashboard(),
         '/landingPage': (context) => LandingScreen(),
         '/viewReports': (context) => ViewReportScreen(),
         '/diabetes': (context) => DiabetesScreen(),

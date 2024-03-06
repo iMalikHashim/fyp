@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/DoctorModule/login/doctorSignup.dart';
+import 'package:fyp/DoctorModule/login/signUp.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fyp/components/patientDashboard.dart';
 import '../doctorDashboard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,20 +19,33 @@ class _LoginScreenState extends State<LoginScreen> {
     String password = passwordController.text;
 
     try {
-      // Query Firestore to find a doctor with the entered email and password
       QuerySnapshot<Map<String, dynamic>> querySnapshot =
           await FirebaseFirestore.instance
-              .collection('doctors')
+              .collection('users')
               .where('email', isEqualTo: email)
               .where('password', isEqualTo: password)
               .get();
+
       if (querySnapshot.docs.isNotEmpty) {
-        print('login successfull');
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Dashboard()),
-        );
+        // Get the role_id from the first document
+        int roleId = querySnapshot.docs.first['role_id'];
+
+        // Navigate based on the role_id
+        if (roleId == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Dashboard()),
+          );
+        } else {
+          // Navigate to patient's dashboard
+          // Replace PatientDashboard with your appropriate patient's dashboard screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PatientDashboard()),
+          );
+        }
       } else {
+        // If no user found with the given credentials
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Invalid email or password.'),
@@ -42,6 +56,12 @@ class _LoginScreenState extends State<LoginScreen> {
     } catch (e) {
       // Handle any errors that occur during the process
       print('Error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('An error occurred. Please try again later.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 
