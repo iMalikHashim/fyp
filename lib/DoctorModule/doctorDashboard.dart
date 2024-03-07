@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fyp/DoctorModule/doctorHome.dart';
 import 'package:fyp/components/addReports.dart';
 import 'package:fyp/components/AI_prediction.dart';
-import 'package:fyp/components/home.dart';
 import 'package:fyp/components/calculateGFR.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -150,7 +150,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Add Appointment'),
+            title: const Text('Add Appointmentg'),
             onTap: () {
               Navigator.pop(context);
             },
